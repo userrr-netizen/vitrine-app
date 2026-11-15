@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VITRINE — Your business, online</title>
+<style>
+:root{--ink:#171717;--muted:#777;--line:#e8e5e0;--paper:#fbfaf8;--accent:#b78b63}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 Inter,system-ui,Arial,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 5vw;border-bottom:1px solid var(--line);background:#fff}
+.logo{font-size:22px;letter-spacing:.22em;font-weight:800}.tag{color:var(--muted);font-size:12px;letter-spacing:.12em}
+main{max-width:1180px;margin:36px auto;padding:0 22px}.hero{margin-bottom:26px}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:0 0 10px;letter-spacing:-.04em}.hero p{color:var(--muted);margin:0}
+.layout{display:grid;grid-template-columns:minmax(280px, .95fr) minmax(320px,1.05fr);gap:22px;align-items:start}
+.panel,.preview{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 30px #16161608}
+h2{font-size:17px;margin:0 0 18px}.field{margin:0 0 14px}.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;border:1px solid #dedbd5;border-radius:10px;padding:11px 12px;font:inherit;background:#fff}.field textarea{min-height:76px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+button{border:0;border-radius:999px;padding:11px 17px;font-weight:700;cursor:pointer;background:var(--ink);color:#fff}button.secondary{background:#f1efeb;color:var(--ink)}button.small{padding:7px 12px;font-size:12px}
+.service{display:grid;grid-template-columns:1fr 90px 32px;gap:8px;margin:8px 0}.service input{min-width:0;border:1px solid #dedbd5;border-radius:9px;padding:9px}.service button{padding:0;background:#f1efeb;color:#333}
+.preview{position:sticky;top:18px;overflow:hidden;padding:0}.preview-top{height:125px;background:linear-gradient(130deg,#e9ded2,#c4aa92);display:flex;align-items:end;padding:18px;color:#33271f}.preview-body{padding:24px}.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}.bizname{font-size:32px;line-height:1.1;margin:6px 0 8px;letter-spacing:-.04em}.desc{color:#666;max-width:52ch}.chips{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}.chip{border:1px solid var(--line);border-radius:99px;padding:5px 10px;font-size:11px;color:#555}.preview h3{font-size:13px;margin:22px 0 8px}.service-line{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);gap:12px}.price{font-weight:700;white-space:nowrap}.contact{display:flex;gap:8px;margin-top:20px}.contact a{flex:1;text-align:center;text-decoration:none;background:var(--ink);color:white;border-radius:99px;padding:12px;font-size:12px;font-weight:700}.contact a.alt{background:#f1efeb;color:#222}.notice{color:var(--muted);font-size:11px;margin-top:14px}.status{font-size:12px;color:#39734b;min-height:18px}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:30px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.preview{position:static}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="logo">VITRINE</div><div class="tag">YOUR BUSINESS. YOUR STYLE.</div></header>
+<main>
+<section class="hero"><h1>Maak jouw zaak<br>zichtbaar online.</h1><p>Een professionele mini-website voor zelfstandigen. Vul je gegevens in en bekijk meteen het resultaat.</p></section>
+<div class="layout">
+<section class="panel">
+<h2>✦ Maak jouw online etalage</h2>
+<div class="field"><label for="name">Naam van je zaak</label><input id="name" value="Studio Amélie" placeholder="Bijv. Studio Amélie"></div>
+<div class="field"><label for="category">Wat doe je?</label><input id="category" value="Nail artist · Beauty" placeholder="Bijv. Kapper, fotograaf..."></div>
+<div class="field"><label for="desc">Korte beschrijving</label><textarea id="desc">Kleine details, grote zelfvertrouwen. Ontdek mijn behandelingen en boek je moment.</textarea></div>
+<div class="row">
+<div class="field"><label for="city">Stad</label><input id="city" value="Brussel" placeholder="Stad"></div>
+<div class="field"><label for="lang">Taal</label><select id="lang"><option>Nederlands</option><option>Français</option><option>English</option></select></div>
+</div>
+<div class="field"><label>Jouw diensten en prijzen (€)</label><div id="services"></div><button class="secondary small" id="add">+ Dienst toevoegen</button></div>
+<div class="row">
+<div class="field"><label for="insta">Instagram (gebruikersnaam)</label><input id="insta" value="@studioamelie" placeholder="@jouwzaak"></div>
+<div class="field"><label for="wa">WhatsApp-nummer</label><input id="wa" placeholder="32470123456"></div>
+</div>
+<div class="actions"><button id="save">Bewaar voorbeeld</button><button class="secondary" id="share">Kopieer deel-link</button></div>
+<div class="status" id="status" aria-live="polite"></div>
+<p class="notice">Demo: gegevens worden alleen in deze browser bewaard. De deel-link werkt nadat VITRINE online staat en bevat je ingevulde profielgegevens.</p>
+</section>
+<section class="preview" aria-label="Voorbeeld van jouw pagina">
+<div class="preview-top"><span class="eyebrow">YOUR LOCAL EXPERT</span></div>
+<div class="preview-body">
+<div class="eyebrow" id="p-category">NAIL ARTIST · BEAUTY</div>
+<div class="bizname" id="p-name">Studio Amélie</div>
+<div class="desc" id="p-desc"></div>
+<div class="chips"><span class="chip" id="p-city">Brussel</span><span class="chip">Op afspraak</span><span class="chip">Persoonlijke service</span></div>
+<h3>DIENSTEN & PRIJZEN</h3><div id="p-services"></div>
+<div class="contact"><a id="p-wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a class="alt" id="p-insta" href="#" target="_blank" rel="noopener">Instagram</a></div>
+<p class="notice">Een voorbeeldpagina gemaakt met VITRINE.</p>
+</div></section>
+</div></main>
+<footer>VITRINE · Een eerste prototype · Geen betalingen of accounts in deze demo</footer>
+<script>
+const $=id=>document.getElementById(id);
+let services=[{name:"BIAB / naturel",price:"45"},{name:"Gel polish",price:"35"},{name:"Nail art",price:"10"}];
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function drawInputs(){
+ $("services").innerHTML="";
+ services.forEach((s,i)=>{let d=document.createElement("div");d.className="service";d.innerHTML=`<input aria-label="Dienst" data-i="${i}" data-k="name" value="${esc(s.name)}"><input aria-label="Prijs in euro" data-i="${i}" data-k="price" type="number" min="0" step=".5" value="${esc(s.price)}"><button type="button" aria-label="Verwijder dienst" data-del="${i}">×</button>`;$("services").append(d)});
+ $("services").querySelectorAll("input").forEach(el=>el.addEventListener("input",e=>{services[+e.target.dataset.i][e.target.dataset.k]=e.target.value;render()}));
+ $("services").querySelectorAll("[data-del]").forEach(el=>el.addEventListener("click",()=>{services.splice(+el.dataset.del,1);drawInputs();render()}));
+}
+function data(){return {name:$("name").value,category:$("category").value,desc:$("desc").value,city:$("city").value,lang:$("lang").value,insta:$("insta").value,wa:$("wa").value,services};}
+function render(){
+ let d=data();$("p-name").textContent=d.name||"Jouw bedrijfsnaam";$("p-category").textContent=d.category||"JOUW ACTIVITEIT";$("p-desc").textContent=d.desc;$("p-city").textContent=d.city||"Jouw stad";
+ $("p-services").innerHTML=d.services.map(s=>`<div class="service-line"><span>${esc(s.name||"Dienst")}</span><span class="price">${s.price? "€"+esc(s.price):"Prijs op aanvraag"}</span></div>`).join("")||"<p class='notice'>Voeg je eerste dienst toe.</p>";
+ let wa=d.wa.replace(/\D/g,"");$("p-wa").href=wa?`https://wa.me/${wa}`:"#";let ig=d.insta.replace(/^@/,"");$("p-insta").href=ig?`https://instagram.com/${encodeURIComponent(ig)}`:"#";
+}
+["name","category","desc","city","lang","insta","wa"].forEach(id=>$(id).addEventListener("input",render));
+$("add").onclick=()=>{services.push({name:"Nieuwe dienst",price:""});drawInputs();render()};
+$("save").onclick=()=>{localStorage.setItem("vitrine-profile",JSON.stringify(data()));$("status").textContent="Voorbeeld bewaard op dit toestel ✓"};
+$("share").onclick=async()=>{let url=location.href.split("#")[0]+"#profile="+encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify(data())))));try{await navigator.clipboard.writeText(url);$("status").textContent="Deel-link gekopieerd. Na publicatie werkt deze link online."; }catch(e){$("status").textContent="Kopieer de URL uit de adresbalk nadat je de profielgegevens hebt opgeslagen."; }};
+function load(){
+ try{let hash=location.hash.match(/profile=([^&]+)/);let d=hash?JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(hash[1]))))):JSON.parse(localStorage.getItem("vitrine-profile")||"null");if(d){["name","category","desc","city","lang","insta","wa"].forEach(k=>{if(d[k]!==undefined)$(k).value=d[k]});services=d.services||services;drawInputs()}}catch(e){}
+ render();
+}
+drawInputs();load();
+</script>
+</body></html>
